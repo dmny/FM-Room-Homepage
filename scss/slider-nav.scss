@@ -1,0 +1,28 @@
+.slider-nav {
+  padding: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background: gray;
+  display: flex;
+}
+
+.btn {
+  width: 50%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: 0;
+}
+
+.slider-btn-prev,
+.slider-btn-next {
+  background: var(--dark);
+}
+
+.slider-btn-prev:hover,
+.slider-btn-next:hover {
+  background: var(--very-dark-gray);
+}

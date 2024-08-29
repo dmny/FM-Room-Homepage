@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+:root {
+  --dark-gray: hsl(0, 0%, 63%);
+  --dark: hsl(0, 0%, 0%);
+  --light: hsl(0, 0%, 100%);
+  --very-dark-gray: hsl(0, 0%, 27%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.header {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+@media (min-width: 60em) {
+  .header {
+    height: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.navbar {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 60em) {
+  .navbar {
+    padding: 0;
+    width: 85%;
+  }
+}
+.nav-menu {
+  margin: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  right: -100%;
+  top: var(--scroll-padding);
+  width: 100%;
+  height: 40vh;
+  height: 40svh;
+  transition: 0.3s;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+@media (min-width: 60em) {
+  .nav-menu {
+    padding: 0;
+    gap: 3rem;
+    flex-direction: row;
+    display: flex;
+    justify-content: end;
+    position: static;
+    height: 100%;
+  }
+}
+.nav-item {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+@media (min-width: 60em) {
+  .nav-item {
+    display: flex;
+    width: auto;
+    padding: 0;
+  }
+}
+.hamburger {
+  display: block;
+  cursor: pointer;
+}
+
+@media (min-width: 60em) {
+  .hamburger {
+    display: none;
+  }
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-logo img {
+  height: 20px;
+}
+
+@media (min-width: 60em) {
+  .nav-logo img {
+    min-height: 30px;
+  }
+}
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+}
+
+.nav-link {
+  color: #475569;
+}
+
+.nav-link:hover {
+  color: #999;
+}
+
+@media (min-width: 60em) {
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
+body {
+  font-family: "League Spartan", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.slider-container {
+  width: 60%;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.slider {
+  height: 70vh;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  background: blue;
+}
+
+.slider-image {
+  background-size: cover !important;
+  background-position: left !important;
+  background-repeat: none !important;
+  background-color: green !important;
+}
+
+.slider-copy-01 {
+  position: relative;
+  width: 40%;
+  max-height: 70vh;
+  padding: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-nav {
+  padding: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  background: gray;
+  display: flex;
+}
+
+.btn {
+  width: 50%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: 0;
+}
+
+.slider-btn-prev,
+.slider-btn-next {
+  background: var(--dark);
+}
+
+.slider-btn-prev:hover,
+.slider-btn-next:hover {
+  background: var(--very-dark-gray);
+}
+
+.about {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+}
+
+.about-dark {
+  width: 30%;
+  background: url("images/image-about-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-copy {
+  width: 40%;
+  padding: 4rem;
+}
+
+.about-light {
+  width: 30%;
+  background: url("images/image-about-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=style.css.map */

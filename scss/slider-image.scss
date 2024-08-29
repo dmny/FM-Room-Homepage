@@ -1,0 +1,22 @@
+.slider-container {
+  width: 60%;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.slider {
+  height: 70vh;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  background: blue;
+}
+
+.slider-image {
+  background-size: cover !important;
+  background-position: left !important;
+  background-repeat: none !important;
+  background-color: green !important;
+}

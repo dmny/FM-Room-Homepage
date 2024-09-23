@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -12,7 +10,7 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Frontend Mentor | Room homepage</title>
+    <title>Room Homepage</title>
   </head>
   <body>
     <header class="header">
@@ -22,108 +20,111 @@
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link" role="button">home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" role="button">shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" role="button">about</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" role="button">contact</a>
+          </li>
+        </ul>
         <a href="#" class="nav-logo" role="button"
           ><img src="images/logo.svg" alt="Dave Delaney logo"
         /></a>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="#" class="nav-link" role="button">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#amenities" class="nav-link" role="button">Shop</a>
-          </li>
-          <li class="nav-item">
-            <a href="#gallery" class="nav-link" role="button">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link" role="button">Contact</a>
-          </li>
-        </ul>
       </nav>
     </header>
-    <!-- <header>Home Shop About Contact</header> -->
-    <div class="container">
-      <div id="sliderContainer" class="slider-container">
-        <div id="imageSlider" class="slider">
-          <div
-            id="last-clone"
-            class="slider-image"
-            style="background: url('images/desktop-image-hero-3.jpg')"
-          ></div>
-          <div
-            class="slider-image"
-            style="
-              background: url('images/desktop-image-hero-1-Enhanced-SR.jpg');
-            "
-          ></div>
-          <div
-            class="slider-image"
-            style="background: url('images/desktop-image-hero-2.jpg')"
-          ></div>
-          <div
-            class="slider-image"
-            style="background: url('images/desktop-image-hero-3.jpg')"
-          ></div>
-          <div
-            id="first-clone"
-            class="slider-image"
-            style="
-              background: url('images/desktop-image-hero-1-Enhanced-SR.jpg');
-            "
-          ></div>
+    <main>
+      <div class="container">
+        <div id="sliderContainer" class="slider-container">
+          <div id="imageSlider" class="slider">
+            <div id="last-clone" class="slider-image"></div>
+            <div class="slider-image"></div>
+            <div class="slider-image"></div>
+            <div class="slider-image"></div>
+            <div id="first-clone" class="slider-image"></div>
+          </div>
+        </div>
+        <div id="copy-slider-container" class="copy-slider-container">
+          <div class="copy-slider">
+            <div id="copy-slide-01" class="copy-slide">
+              <h1>Discover innovative ways to decorate</h1>
+              <p>
+                We provide unmatched quality, comfort, and style for property
+                owners across the country. Our experts combine form and function
+                in bringing your vision to life. Create a room in your own style
+                with our collection and make your property a reflection of you
+                and what you love.
+              </p>
+            </div>
+            <div id="copy-slide-02" class="copy-slide">
+              <h1>We are available all across the globe</h1>
+              <p>
+                With stores all over the world, it's easy for you to find
+                furniture for your home or place of business. Locally, we’re in
+                most major cities throughout the country. Find the branch
+                nearest you using our store locator. Any questions? Don't
+                hesitate to contact us today.
+              </p>
+            </div>
+            <div id="copy-slide-03" class="copy-slide">
+              <h1>Manufactured with the best materials</h1>
+              <p>
+                Our modern furniture store provide a high level of quality. Our
+                company has invested in advanced technology to ensure that every
+                product is made as perfect and as consistent as possible. With
+                three decades of experience in this industry, we understand what
+                customers want for their home and office.
+              </p>
+            </div>
+          </div>
+          <div class="shop-cta">
+            <a href="#" class="shop-link">
+              <span class="shop-text">SHOP NOW</span>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="slider-copy-01">
-        <h1>Discover innovative ways to decorate</h1>
-        <p>
-          We provide unmatched quality, comfort, and style for property owners
-          across the country. Our experts combine form and function in bringing
-          your vision to life. Create a room in your own style with our
-          collection and make your property a reflection of you and what you
-          love. Shop now
-        </p>
-        <div class="slider-nav">
-          <button id="prev" class="btn slider-btn-prev">
-            <img src="images/icon-angle-left.svg" alt="" />
-          </button>
-          <button id="next" class="btn slider-btn-next">
-            <img src="images/icon-angle-right.svg" alt="" />
-          </button>
+      <div class="container">
+        <div class="about">
+          <div class="about-dark">
+            <img src="images/image-about-dark.jpg" alt="" />
+          </div>
+          <div class="about-copy">
+            <h2>ABOUT OUR FURNITURE</h2>
+            <p>
+              Our multifunctional collection blends design and function to suit
+              your individual taste. Make each room unique, or pick a cohesive
+              theme that best express your interests and what inspires you. Find
+              the furniture pieces you need, from traditional to contemporary
+              styles or anything in between. Product specialists are available
+              to help you create your dream space.
+            </p>
+          </div>
+          <div class="about-light">
+            <img src="images/image-about-light.jpg" alt="" />
+          </div>
         </div>
       </div>
-    </div>
-    <!-- <div>
-      <h1>We are available all across the globe</h1>
-      With stores all over the world, it's easy for you to find furniture for
-      your home or place of business. Locally, we’re in most major cities
-      throughout the country. Find the branch nearest you using our store
-      locator. Any questions? Don't hesitate to contact us today. Shop now
-      Manufactured with the best materials Our modern furniture store provide a
-      high level of quality. Our company has invested in advanced technology to
-      ensure that every product is made as perfect and as consistent as
-      possible. With three decades of experience in this industry, we understand
-      what customers want for their home and office. Shop now
-    </div> -->
-    <div class="container">
-      <div class="about">
-        <div class="about-dark"></div>
-        <div class="about-copy">
-          <h2>About our furniture</h2>
-          <p>
-            Our multifunctional collection blends design and function to suit
-            your individual taste. Make each room unique, or pick a cohesive
-            theme that best express your interests and what inspires you. Find
-            the furniture pieces you need, from traditional to contemporary
-            styles or anything in between. Product specialists are available to
-            help you create your dream space.
-          </p>
-        </div>
-        <div class="about-light"></div>
-      </div>
+    </main>
+    <div class="slider-nav">
+      <button id="prev" class="btn slider-btn-prev">
+        <img src="images/icon-angle-left.svg" alt="" />
+      </button>
+      <button id="next" class="btn slider-btn-next">
+        <img src="images/icon-angle-right.svg" alt="" />
+      </button>
     </div>
   </body>
+  <script src="nav.js"></script>
   <script src="main.js"></script>
   <script>
-    slider();
+    sliderInit();
+    // startSlideTimer();
   </script>
 </html>

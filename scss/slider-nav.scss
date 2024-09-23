@@ -1,11 +1,14 @@
 .slider-nav {
-  padding: 0;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 25%;
-  background: gray;
   display: flex;
+  position: absolute;
+  bottom: 50svh;
+  right: 0;
+  @media (min-width: 60em) {
+    width: 12%;
+    bottom: 35vh;
+    left: 58%;
+  }
 }
 
 .btn {

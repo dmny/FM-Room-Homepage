@@ -3,6 +3,12 @@ body {
   font-optical-sizing: auto;
   // font-weight: <weight>;
   font-style: normal;
+  background: var(--light);
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 3.5rem;
 }
 
 h1 {
@@ -11,11 +17,30 @@ h1 {
 }
 
 p {
-  font-size: 1.5rem;
+  color: var(--dark-gray);
 }
 
 .container {
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
+  @media (min-width: 60em) {
+    flex-direction: row;
+  }
+}
+
+.fade-left {
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.transition-class {
+  transition: transform 1s ease, opacity 1s ease;
+  transform: translateX(-10px); /* Example transform */
+  opacity: 0; /* Example opacity transition */
+}
+
+.inverted {
+  background: red;
 }

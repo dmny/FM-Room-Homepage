@@ -1,83 +1,94 @@
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+// Slide carousel
+// To do:
+// 1. Add debouncing to minimize load during window resize.
+// 2. Add subtle transition to copy slider/stack.
+// 3. Continue to optimize things where possible.
 
-hamburger.addEventListener("click", mobileMenu);
-
-function mobileMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-}
-
-const navLink = document.querySelectorAll(".nav-link");
-
-navLink.forEach((n) => n.addEventListener("click", closeMenu));
-
-function closeMenu() {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("active");
-}
-
-// const navigationHeight = document
-//   .querySelector(".header")
-//   .getBoundingClientRect().height;
-// document.documentElement.style.setProperty(
-//   "--scroll-padding",
-//   navigationHeight + "px"
-// );
-
-//Slide carousel
-let count = 1;
+const imageSlider = document.getElementById("imageSlider");
+const slides = document.getElementsByClassName("slider-image");
+const copySlider = document.getElementById("copySlider");
 const next = document.querySelector(".slider-btn-next");
 const prev = document.querySelector(".slider-btn-prev");
-let slideWidth = document.getElementById("sliderContainer").clientWidth;
-let slides = document.getElementsByClassName("slider-image");
 
-function slider() {
-  const imageSlider = document.querySelector(".slider");
+let count = 1;
+let slideWidth;
+let paused = false;
 
-  imageSlider.style.transition = "";
+// Reset slider transition based on current slide width.
+function setSlider() {
   imageSlider.style.transform = `translateX(${-slideWidth * count}px)`;
+}
 
+// Calculate image slider container size initially and after browser resize, then set slide width to match.
+function sliderInit() {
+  slideWidth = document.getElementById("sliderContainer").clientWidth;
   Array.from(slides).forEach((slide) => {
     slide.style.width = `${slideWidth}px`;
   });
-  return slideWidth;
+  setSlider();
 }
 
-function moveSlide() {
-  imageSlider.style.transform = `translateX(${-slider() * count}px)`;
+function startSlideTimer() {
+  slideTimer = setInterval(function () {
+    count++;
+    moveSlider();
+    nextCopySlide();
+  }, 5000);
+}
+
+function stopSlideTimer() {
+  clearInterval(slideTimer);
+}
+
+function moveSlider() {
   imageSlider.style.transition = "transform 0.4s ease-in-out";
+  stopSlideTimer();
+  setSlider();
+  nextCopySlide();
+  startSlideTimer();
 }
 
-imageSlider.addEventListener("transitionend", () => {
-  if (slides[count].id === "last-clone") {
-    imageSlider.style.transition = "none";
-    count = slides.length - 2;
-    imageSlider.style.transform = `translateX(${-slideWidth * count}px)`;
-  }
-  if (slides[count].id === "first-clone") {
-    imageSlider.style.transition = "none";
-    count = slides.length - count;
-    imageSlider.style.transform = `translateX(${-slideWidth * count}px)`;
-  }
-});
+function nextCopySlide() {
+  const slides = document.querySelectorAll(".copy-slide");
+  let slideArray = Array.from(slides);
+  slideArray.forEach((slide, index) => {
+    slide.style.zIndex =
+      (index + (slides.length - (count % slides.length))) % slides.length;
+  });
+}
 
-let myTimer = setInterval(() => {
-  count++;
-  moveSlide();
-}, 5000);
+// Pause slider when tab is switched.
+function handleVisibilityChange() {
+  if (document.visibilityState === "hidden") {
+    stopSlideTimer();
+    paused = true;
+  } else if (paused) {
+    startSlideTimer();
+    paused = false;
+  }
+}
+
+// Check for current slide position, reset slider to continue infinate loop.
+imageSlider.addEventListener("transitionend", () => {
+  count = slides[count].id === "last-clone" ? slides.length - 2 : count;
+  count = slides[count].id === "first-clone" ? slides.length - count : count;
+  imageSlider.style.transition = "none";
+  setSlider();
+});
 
 next.addEventListener("click", () => {
   if (count >= slides.length - 1) return;
   count++;
-  moveSlide();
-  // clearInterval(myTimer);
+  moveSlider();
 });
 
 prev.addEventListener("click", () => {
   if (count <= 0) return;
   count--;
-  moveSlide();
+  moveSlider();
 });
 
-window.onresize = slider;
+window.addEventListener("resize", sliderInit);
+
+document.addEventListener("visibilitychange", handleVisibilityChange);
+startSlideTimer();
